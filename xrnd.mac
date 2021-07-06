@@ -6,7 +6,8 @@
 ; so that it can be directly included in pascal source with:
 ;     EXTERNAL PROCEDURE XRAND; 
 ; transcoded to pure 8080 assembler by D. Collins 2020, use at your own 
-; risk. free to distribute and use.
+; risk. free to distribute and use.  Please see LICENSE in repository
+; for more details.
 
 XRAND:
      POP  B          ; return address pulled off the stack
@@ -34,4 +35,4 @@ XRAND:
      RET 
      
      END
-
+
