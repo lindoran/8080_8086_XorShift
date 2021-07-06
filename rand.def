@@ -1,0 +1,9 @@
+{these are the function def's for rand and xrnd both erl's need to be 
+ included for this to work }
+
+external procedure xrand;
+external procedure randomize(seed : integer);
+external function random(range :integer) : integer;
+
+
+
