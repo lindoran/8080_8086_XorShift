@@ -29,6 +29,11 @@ http://b2d-f9r.blogspot.com/2010/08/16-bit-xorshift-rng.html
 <H2>
     Usage and Notes:
 </H2>
+    
+To add to your program simply add {$I rand.def} after your declaration block and compile, then link RAND and XR86 or XR80.
+for 8080 the relocatable file is .erl and for 8086 it is .r86.  
+    
+    
 you can set the seed using various methods such as the system timer by calling the randomize procedure: 
 
     randomize([RANDOM SEED]);
