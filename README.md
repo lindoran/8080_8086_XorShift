@@ -22,13 +22,8 @@ thanks to Brad Forschingers helpfull blog post and example source:
 
 http://b2d-f9r.blogspot.com/2010/08/16-bit-xorshift-rng.html
 
-<BR>
-<BR>
-<BR>
 
-<H2>
-    Usage and Notes:
-</H2>
+# Usage and Notes:
     
 To add to your program simply add {$I rand.def} after your declaration block and compile, then link RAND and XR86 or XR80.
 for 8080 the relocatable file is .erl and for 8086 it is .r86.  
@@ -55,7 +50,7 @@ NOTE: the asembler code automatically handles the entry points within the contex
 another compiled language that uses microsofts relocateable file format you will need to consult that compilers manual and update 
 the code for working with your specific compiler.
     
-MIT License
+# MIT License
 
 Copyright (c) 2021 Dave Collins
 
