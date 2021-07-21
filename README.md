@@ -1,4 +1,4 @@
-# 8080_XorShift
+# 8080_8086_XorShift For Pascal/MT+ Family of 8 and 16 bit compilers
 a pre-compiled library for Pascal/MT+ with pure 8080 or 8088/6 asembler for use on CPM-80 and CPM-86
 
 This code will produce with very little overhead and without the use of Floating point a Psudorandom number
