@@ -13,18 +13,18 @@
 XRAND:
 	POP B		; return address pulled off the stack
 	POP H		; we pull the input seed off the stack into HL
-				; the companion module handles storing the seed. 
+			; the companion module handles storing the seed. 
 
 	MOV A,H		; the magic sauce, Im aware this might not be  
-	RAR			; a true xor shift as this just shifts right 1
-    MOV A,L		; at each itteration. it does produce usable 
-	RAR			; output, and it's code that has proven to work
+	RAR		; a true xor shift as this just shifts right 1
+    	MOV A,L		; at each itteration. it does produce usable 
+	RAR		; output, and it's code that has proven to work
 	XRA H		; for several Z80 programers in the comunity.
 	MOV H,A		; if you would like to show me how to do this
 	MOV A,L		; with a resonable amount of code for a "proven
-	RAR			; data set triplet" as in Marsaglia's paper, 
+	RAR		; data set triplet" as in Marsaglia's paper, 
 	MOV A,H		; im always open to being educated. This is, for
-	RAR			; me, close enough.
+	RAR		; me, close enough.
 	XRA L		; - end rant - ... also a smily face :)
 	MOV L,A		; have fun!
 	XRA H 
