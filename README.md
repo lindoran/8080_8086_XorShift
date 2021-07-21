@@ -11,6 +11,7 @@ Both of the versions were found to work on the V20-MBC2 in both 8080 and 8086 mo
 specific about any of the source and it should work well where the compiler can run and compile code (including 
 but not limited to dos), while the system architecture is the same. Also note the pre-compiled relocatable files
 were generated under CP/M and CPM-86; you may need to recompile from source if you are having trouble linking them.
+the 8080 code was generated with M80.COM, and renaming the output extention to .ERL from .REL.
 
 you can read about Fabios exellent V20-MBC Single board computer here:
 
@@ -41,10 +42,10 @@ you can set the seed using various methods such as the system timer by calling t
     
    this will return a random number from zero to (max number - 1).  
    
-Its important to note both the function and procedure use 16 bit 2's compliment integers, however the asember is 
-uses a 16 bit word.  This may slightly effect the distribution of the numbering (to a small or lage degree).  
-in other words - this isn't sutable for research or cryptography; but most likely perfectly fine if you just need
-to seed a few random numbers for a game or whatnot.
+Its important to note both the function and procedure use 16 bit 2's compliment integers for compatiblity, however
+the asm code uses a 16 bit word.  This may slightly effect the distribution of the numbering (to a small or lage degree). 
+in other words - this isn't sutable for research or cryptography; but most likely perfectly fine if you just need to seed 
+a few random numbers for a game or whatnot.
    
 NOTE: the asembler code automatically handles the entry points within the context of pascal/mt+ if you wish to use this with
 another compiled language that uses microsofts relocateable file format you will need to consult that compilers manual and update 
