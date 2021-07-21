@@ -1,0 +1,38 @@
+    PUBLIC XRAND
+
+; this is a 16 bit xorshift psudorandom number generator discovered 
+; by George Marsaglia.  It's been converted for use in Pascal/MT+.
+; as a module. you would link this code, with the code from the companion
+; rand.inc module to use the functions random and randomize. function def's
+; can be included by includeing rand.def
+
+; transcoded to pure 8080 assembler by D. Collins 2021, use at your own 
+; risk. free to distribute and use.please refrence LICENCE in the repo 
+; for more detals. furthermore please distribute with a copy of the LICENCE
+
+XRAND:
+	POP B		; return address pulled off the stack
+	POP H		; we pull the input seed off the stack into HL
+				; the companion module handles storing the seed. 
+
+	MOV A,H		; the magic sauce, Im aware this might not be  
+	RAR			; a true xor shift as this just shifts right 1
+    MOV A,L		; at each itteration. it does produce usable 
+	RAR			; output, and it's code that has proven to work
+	XRA H		; for several Z80 programers in the comunity.
+	MOV H,A		; if you would like to show me how to do this
+	MOV A,L		; with a resonable amount of code for a "proven
+	RAR			; data set triplet" as in Marsaglia's paper, 
+	MOV A,H		; im always open to being educated. This is, for
+	RAR			; me, close enough.
+	XRA L		; - end rant - ... also a smily face :)
+	MOV L,A		; have fun!
+	XRA H 
+	MOV H,A
+	
+	PUSH H		; Pascal/MT+ 80 uses the stack to return a value
+	PUSH B		; return addres to the stack 
+	RET 
+     
+	END
+

@@ -1,0 +1,51 @@
+;This is based very much on brad forshingers x86 16bit xor shift program
+;it has been modified to work as a drop in module for pascal/mt+ for the
+;x86 version of the compiler. it's been tested on CPM-86, but should work
+;fine in dos, as it only uses AX,BX, and CL with no interupts or system
+;calls.  this is a very simple fast random number generation algorithm
+;plese see George Marsaglia's paper on the techniqe:
+;http://www.jstatsoft.org/v08/i14/paper
+
+;see brad's blog post:
+;http://b2d-f9r.blogspot.com/2010/08/16-bit-xorshift-rng.html
+
+; 8088/6 XOR SHIFT MODULE D. Collins 2021, use at your own 
+; risk. free to distribute and use.please refrence LICENCE in the repo 
+; for more detals. furthermore please distribute with a copy of the LICENCE
+ 
+	name	xor_shift_16_module
+	assume	cs:code,ds:data
+
+data	segment public
+data	ends
+
+code	segment public
+	
+	public xrand
+
+;xrnd is a function that outputs a random number based on a seed
+;external function xrnd(i:integer) : integer;
+;the companion module manages the seed within pascal.
+
+xrand	proc near
+	pop  bx		; capture return address 
+	pop  ax		; seed data from stack where Pascal/MT+ left it
+	mov  dx,ax	; if i could explain the math i would lol
+	mov  cl,04	; instead here is a smily face :)
+	shl  ax,cl	
+	xor  dx,ax		
+	mov  ax,dx	 
+	mov  cl,03			    	
+	shr  ax,cl	 
+	xor  dx,ax	
+	mov  ax,dx	
+	mov  cl,07
+	shl  ax,cl
+	xor  dx,ax
+	xchg dx,ax	; ax contains the return data for xrnd	
+	jmp  bx		; return to return address
+xrand	endp
+
+code	ends
+		end
+		
