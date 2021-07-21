@@ -7,7 +7,12 @@ George Marsaglia.  You can read his paper here: http://www.jstatsoft.org/v08/i14
 
 Both of the versions were found to work on the V20-MBC2 in both 8080 and 8086 mode. There is nothing platform
 specific about any of the source and it should work well where the compiler can run and compile code (including 
-but not limited to dos), while the system architecture is the same.
+but not limited to dos), while the system architecture is the same. Also note the pre-compiled relocatable files
+were generated under CP/M and CPM-86; you may need to recompile from source if you are having trouble linking them.
+
+also a favor.  If sombody tests this on a ALTAIR i'd love an email:
+
+Z80DAD at GMAIL dot COM
 
 you can read about Fabios exellent V20-MBC Single board computer here:
 
